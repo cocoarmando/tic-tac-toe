@@ -31,16 +31,20 @@ startOver.addEventListener('click', init);
 
 // functions
 function playerMove(e) {
+    if(winner) {
+        return;
+    } else {
     let idx = e.target.id;
     if(board[idx] === 1 || board[idx] === -1) {
         return;
     }
-    console.log('clicked inside player move')    
-    console.log(idx)
+    //console.log('clicked inside player move')    
+    //console.log(idx)
     board[idx] = turn;
     turn *= -1;
     winner = getWinner();
     render();
+}
 }
 
 function getWinner() {
